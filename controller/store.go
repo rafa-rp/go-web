@@ -41,3 +41,9 @@ func SaveNewProduct(w http.ResponseWriter, r *http.Request) {
 	}
 	http.Redirect(w, r, "/", 301)
 }
+
+func DeleteTableProduct(w http.ResponseWriter, r *http.Request) {
+	productId := r.URL.Query().Get("id")
+	models.DeleteProduct(productId)
+	http.Redirect(w, r, "/", 301)
+}
